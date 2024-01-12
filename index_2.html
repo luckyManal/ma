@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- font awesome cdn link  -->
+    <!-- custom css link -->
+    <style>
+        .header{
+  background-color: rgb(39, 138, 219);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+   
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 9%;
+  }
+  
+  .header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+  }
+  
+  .header .logo i{
+    color: var(--primary-color);
+    padding-right: .5rem;
+  }
+  
+  .header .navbar a{
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+    padding-block: 1rem;
+  }
+  
+  .header .navbar a:hover{
+    color: var(--primary-color);
+  }
+  
+  .header .navbar .hover-underline{
+    position: relative;
+    max-width: max-content;
+  }
+  
+  .header .navbar .hover-underline::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: .5rem;
+    border-block: .1rem solid var(--primary-color);
+    transform: scaleX(0.2);
+    opacity: 0;
+    transition: 500ms ease;
+  }
+  
+  .header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  
+  .header .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  
+  .header .icons div:hover{
+    color: var(--primary-color);
+  }
+  
+  #menu-btn{
+    display: none;
+  }
+  .para{ font-size: 30px;}
+  
+  .header .login-form{
+    position: absolute;
+    top: 115%; right: -105%;
+    background: var(--white);
+    box-shadow: .5rem;
+    width: 35rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+  }
+  
+  .header .login-form.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+  
+  .header .login-form h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: .7rem;
+  }
+  
+  .header .login-form .box{
+    font-size: 1.5rem;
+    margin: .7rem 0;
+    border: .1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.2rem;
+    color: var(--black);
+    text-transform: none;
+    width: 100%;
+  }
+  
+  .header .login-form .remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .7rem 0;
+  }
+  
+  .header .login-form .remember label{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  section .heading{font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;
+  border: solid rgb(39, 138, 219) 5px; display: inline-flex;}
+  section p{font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+/* home */
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(oo.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .home .content{
+    max-width: 50rem;
+  }
+  
+  .home .content h3{
+    font-size: 5rem;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  
+  .home .content p{
+    font-size: 1.5rem;
+    line-height: 2;
+    color: var(--white);
+    padding: 1rem 0;
+  }
+  
+  
+  /* ends */
+  
+  /* about */
+  
+  .about .container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .about .container .about-image{
+    position: relative;
+    flex: 1 1 40rem;
+  }
+  
+  .about .container .about-image img{
+    width: 80%;
+  }
+  
+  .about .container .about-image .about-img{
+    position: absolute;
+    bottom: -10rem;
+    right: -1rem;
+    width: 25rem;
+    padding-block: 5rem;
+  }
+  
+  .about .container .about-content{
+    flex: 1 1 50rem;
+    padding-left: 6rem;
+    padding-top: 8rem;
+  }
+  
+  .about .container .about-content h3{
+    font-size: 3rem;
+    color: var(--primary-color);
+  }
+  
+  .about .container .about-content p{
+    font-size: 1.6rem;
+    color: #444;
+    padding: 1rem 0;
+    line-height: 1.8;
+  }
+ p2{font-size: large;background-color: rgb(170, 224, 231);}
+  
+  /* ends */
+  
+  /* subjects */
+  
+  .subjects .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .subjects .box-container .box{
+    padding: 3rem 2rem;
+    text-align: center;
+    border: .1rem solid var(--primary-color);
+    background: var(--secondary);
+    cursor: pointer;
+  }
+  
+  .subjects .box-container .box:hover{
+    background: var(--primary-color);
+  }
+  
+  .subjects .box-container .box img{
+    height: 10rem;
+    margin-bottom: .7rem;
+  }
+  
+  .subjects .box-container .box h3{
+    font-size: 1.7rem;
+    color: #444;
+    padding: .5rem 0;
+    text-transform: capitalize;
+  }
+  
+  .subjects .box-container .box:hover h3{
+    color: #fff;
+  }
+  
+  .subjects .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #777;
+  }
+  
+  .subjects .box-container .box:hover p{
+    color: #eee;
+  }
+  
+  /* end */
+  
+  
+  
+  /* review */
+  
+  
+  
+  /* ends */
+  
+  /* blog */
+  
+  
+  /* ends */
+  
+  /* contact */
+  
+  .contact .row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .contact .row .image{
+    flex: 1 1 40rem;
+  }
+  
+  .contact .row .image img{
+    width: 50%;
+    height:10%
+  }
+  
+  .contact .row form{
+    flex: 1 1 40rem;
+    border: 0.1rem solid var(--primary-color);
+    padding: 2rem;
+  }
+ .contact .row  .msgg{ color: rgb(56, 116, 194); border-style: double ; display: inline-block;}
+  
+  .contact .row form h3{
+    font-size: 2.5rem;
+    color: #444;
+    padding-bottom: 1rem;
+  }
+  
+  .contact .row form .box{
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.4rem;
+    border: .1rem solid var(--primary-color);
+    margin: .7rem 0;
+  }
+  
+  .contact .row form .box:focus{
+    color: var(--primary-color);
+  }
+  
+  .contact .row form textarea{
+    height: 15rem;
+    resize: none;
+  }
+  
+  /* ends */
+  
+  /* footer */
+  
+  .footer{
+    background: var(--secondary);
+    text-align: center;
+  }
+  
+  .footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .footer .box-container .box h3{
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    padding: 1rem 0;
+  }
+  
+  .footer .box-container .box p{
+
+    font-size: 1.5rem;
+    color: var(--black);
+    line-height: 2;
+    padding: 1rem 0;
+  }
+  
+  
+  
+  .footer .box-container .box .link{
+    font-size: 1.7rem;
+    line-height: 2;
+    color: var(--black);
+    padding: .5rem 0;
+    display: block;
+  }
+  
+  .footer .box-container .box .link:hover{
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  
+  .footer .credit{
+    font-size: 2rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+    color: var(--black);
+    border-top: .1rem solid var(--primary-color);
+  }
+  
+  .footer .credit span{
+    color: var(--primary-color);
+  }
+  
+  /* ends */
+  
+  /* media queries */
+  
+  @media (max-width:991px){
+  
+    html{
+      font-size: 55%;
+    }
+  
+    .header{
+      padding: 2rem 4rem;
+    }
+  
+    section{
+      padding: 3rem 2rem;
+    }
+  
+  }
+  
+  @media (max-width:768px){
+  
+    #menu-btn{
+      display: inline-block;
+    }
+  
+    .header .navbar{
+      position: absolute;
+      top: 110%; right: -110%;
+      width: 30rem;
+      box-shadow: var(--box-shadow);
+      border-radius: .5rem;
+      background: var(--white);
+    }
+  
+    .header .navbar.active{
+      right: 2rem;
+      transition: .4s linear;
+    }
+  
+    .header .navbar a{
+      font-size: 2rem;
+      margin: 1rem 2.5rem;
+      display: block;
+    }
+  
+    .home .content h3{
+      font-size: 3rem;
+    }
+  
+    .about .container .about-content{
+      padding-left: 0;
+    }
+  
+  }
+  
+  @media (max-width:450px){
+    html{
+      font-size: 50%;
+    }
+  }  
+    </style>
+
+</head>
+<body>
+    
+    <!-- header section starts -->
+
+    <header class="header">
+
+        <a href="#" class="logo"><i class="fas fa-book"></i> codingweb</a>
+
+        <nav class="navbar">
+            <a href="home.html" class="hover-underline">home</a>
+            <a href="#about" class="hover-underline">about</a>
+            <a href="subjects.html" class="hover-underline">HTML</a>
+            <a href="CSS.html" class="hover-underline">CSS</a>
+            <a href="javascript.html" class="hover-underline">JAVASCRIPT</a>
+            <a href="QCM.html" class="hover-underline">QCM</a>
+        </nav>
+
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+
+        <!-- login form -->
+
+        <form action="" class="login-form">
+            <h3>login form</h3>
+            <input type="email" placeholder="enter your email" class="box">
+            <input type="password" placeholder="enter your password" class="box">
+            <div class="remember">
+                <input type="checkbox" name="" id="remember">
+                <label for="remember-me">remember me</label>
+            </div>
+            <a href="#" class="btn">
+                <span class="text text-1">login now</span>
+                <span class="text text-2" aria-hidden="true">login now</span>
+            </a>
+        </form>
+
+    </header>
+
+    <!-- header section ends -->
+ <!-- home section starts-->
+
+ <section class="home" id="home">
+
+    <div class="content">
+        <h3>the best courses you will find here</h3>
+        <p class="para">"Dive into the world of web development with our interactive courses on HTML, CSS, and JavaScript to
+             master programming today!" </p>
+       
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts -->
+
+<section class="about" id="about">
+
+    <h1 class="heading">about us</h1>
+    <p>
+        Discover the power of web creation through our beginner-friendly tutorials in HTML, CSS, and JavaScript.<br>
+         Whether you're taking your first steps into coding or aiming to enhance your skills, <br>our easy-to-follow 
+         lessons and hands-on projects make learning  enjoyable and accessible. <br> Start your coding journey with
+          us and build the websites you've always envisioned.
+          <h2 style="color:rgb(55, 55, 202); text-decoration: underline;"> Mission</h2>
+          <p2>Our mission is to make coding accessible and fun for everyone. Whether you're a beginner or an 
+          experienced developer, we have resources tailored to your needs.</p2>
+          
+        <h2 style="color:rgb(55, 55, 202); text-decoration: underline;" >What Sets Us Apart</h2>
+    <p2> At Your Website Name, we focus on hands-on learning. Our interactive tutorials, coding challenges,
+           and projects enable you to apply what you learn in real-time.</p2>
+          
+         <h2 style="color:rgb(55, 55, 202); text-decoration: underline;"> Our Approach to Teaching</h2>
+        <p2> We believe in a practical approach to learning. Our tutorials are designed with simplicity and 
+          clarity, ensuring that you grasp fundamental concepts while building real-world projects.</p2>
+          
+        <h2 style="color:rgb(55, 55, 202); text-decoration: underline;">Future Plans</h2>
+        <p2>We're constantly working on expanding our content and features. Stay tuned for more advanced 
+          tutorials, live coding sessions, and collaborative projects coming soon!</p2>
+        
+        </p>
+
+    <div class="container">
+
+        <figure class="about-image">
+            <img src="pic.jpg" alt="" height="400">
+            
+        </figure>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- subjects section starts -->
+
+<section class="subjects">
+
+    <h1 class="heading">our popular subjects</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="htmlll.jpg" alt="">
+            <h3>HTML</h3>
+            <p>fun & challenging</p>
+        </div>
+
+        <div class="box">
+            <img src="csss.jpg" alt="">
+            <h3>CSS</h3>
+            <p>fun & challenging</p>
+        </div>
+
+        <div class="box">
+            <img src="jss.jpg" alt="">
+            <h3>JAVASCRIPT</h3>
+            <p>fun & challenging</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- subject section ends -->
+
+<!-- courses section starts -->
+
+
+
+<!-- courses section ends -->
+
+<!-- teacher section starts -->
+
+
+<!-- teacher section ends -->
+
+<!-- review section starts -->
+
+
+<!-- review section ends -->
+
+<!-- blog section starts -->
+
+
+<!-- blog section ends -->
+
+<!-- contact section starts -->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading">contact us</h1>
+
+    <div class="row">
+        <div class="image">
+            <img src="cnt.jpg" alt="">
+            <p >We're here to assist you every step of the way! Whether you have questions, suggestions, or simply want to 
+                share your thoughts, we're eager to hear from you. Your feedback matters, and we're committed to providing 
+                the best support possible. Reach out to us with any inquiries or ideas—your message matters and 
+                helps us tailor our content to better suit your needs. Don't hesitate to drop us a line; we're ready to
+                 help!</p>
+        </div>
+        <form action="">
+            <h3 class="msgg">send us a message</h3>
+            <input type="text" placeholder="name" class="box">
+            <input type="email" placeholder="email" class="box">
+            <input type="number" placeholder="phone number" class="box">
+            <textarea placeholder="message" class="box" cols="30" rows="10"></textarea>
+            <a href="#" class="btn">
+                <span class="text text-1">send message</span>
+                <span class="text text-2" aria-hidden="true">send message</span>
+            </a>
+        </form>
+    </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section stars -->
+
+<section class="footer">
+
+    <div class="box-container">
+        <div class="box">
+            <h3>contact us</h3>
+            <p>+212 654 555999</p>
+            <a href="#" class="link">Codingweb@gmail.com</a>
+        </div>
+        
+
+    </div>
+    <div class="credit">made by <span>manal hajjaji </span></div>
+</section>
+
+<!-- footer section ends -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- custom js -->
+<script src="js/script.js"></script>
+</body>
+</html>
+  

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+  background-color: rgb(39, 138, 219);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+   
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 9%;
+  }
+  
+  .header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+  }
+  
+  .header .logo i{
+    color: var(--primary-color);
+    padding-right: .5rem;
+  }
+  
+  .header .navbar a{
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+    padding-block: 1rem;
+  }
+  
+  .header .navbar a:hover{
+    color: var(--primary-color);
+  }
+  
+  .header .navbar .hover-underline{
+    position: relative;
+    max-width: max-content;
+  }
+  
+  .header .navbar .hover-underline::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: .5rem;
+    border-block: .1rem solid var(--primary-color);
+    transform: scaleX(0.2);
+    opacity: 0;
+    transition: 500ms ease;
+  }
+  
+  .header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  
+  .header .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  
+  .header .icons div:hover{
+    color: var(--primary-color);
+  }
+  
+  #menu-btn{
+    display: none;
+  }
+  .para{ font-size: 30px;}
+  
+  .header .login-form{
+    position: absolute;
+    top: 115%; right: -105%;
+    background: var(--white);
+    box-shadow: .5rem;
+    width: 35rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+  }
+  
+  .header .login-form.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+  
+  .header .login-form h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: .7rem;
+  }
+  
+  .header .login-form .box{
+    font-size: 1.5rem;
+    margin: .7rem 0;
+    border: .1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.2rem;
+    color: var(--black);
+    text-transform: none;
+    width: 100%;
+  }
+  
+  .header .login-form .remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .7rem 0;
+  }
+  
+  .header .login-form .remember label{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  section .heading{font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;
+  border: solid rgb(39, 138, 219) 5px; display: inline-flex;}
+  section p{font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+  .html {
+    border: solid rgb(58, 109, 58) 10px;
+    background-color: rgb(163, 236, 163);
+    padding-top: 20px;
+  }
+  .html h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    color: rgb(12, 77, 12);
+    text-decoration: underline;
+  }
+  p{
+    font-size: large;
+  }
+
+
+   .js {
+    border: solid rgb(58, 109, 58) 10px;
+    background-color: rgb(163, 236, 163);
+    padding-top: 20px;
+  }
+  .js h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    color: rgb(12, 77, 12);
+    text-decoration: underline;
+  }
+  p{
+    font-size: large;
+  }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <a href="#" class="logo"><i class="fas fa-book"></i> codingweb</a>
+
+        <nav class="navbar">
+            <a href="home.html" class="hover-underline">home</a>
+            <a href="#about" class="hover-underline">about</a>
+            <a href="subjects.html" class="hover-underline">HTML</a>
+            <a href="CSS.html" class="hover-underline">CSS</a>
+            <a href="javascript.html" class="hover-underline">JAVASCRIPT</a>
+            <a href="QCM.html" class="hover-underline">QCM</a>
+        </nav>
+
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+    </header>
+
+
+
+       <div class="html">
+            <h1>JAVASCRIPT</h1>
+            <h2>What is JavaScript ?</h2> 
+    <p>JavaScript is a lightweight, cross-platform, single-threaded, and interpreted compiled programming 
+        language. It is also known as the scripting language for webpages. It is well-known for the development
+         of web pages, and many non-browser environments also use it.
+        
+        JavaScript is a weakly typed language (dynamically typed). JavaScript can be used for Client-side 
+        developments as well as Server-side developments. JavaScript is both an imperative and declarative
+         type of language. JavaScript contains a standard library of objects, like Array, Date, and Math, 
+         and a core set of language elements like operators, control structures, and statements. </p>
+    
+    <h2>History of JavaScript </h2>
+    <p>It was created in 1995 by Brendan Eich while he was an engineer at Netscape. It was originally going to
+         be named LiveScript but was renamed. Unlike most programming languages, JavaScript language has no
+          concept of input or output. It is designed to run as a scripting language in a host environment, and
+           it is up to the host environment to provide mechanisms for communicating with the outside world.
+            The most common host environment is the browser. </p>
+    
+    <h2>Features of JavaScript</h2>
+    <p>According to a recent survey conducted by Stack Overflow, JavaScript is the most popular language on earth. 
+        With advances in browser technology and JavaScript having moved into the server with Node.js and other frameworks, JavaScript is capable of so much more. Here are a few things that we can do with JavaScript: 
+        
+        JavaScript was created in the first place for DOM manipulation. Earlier websites were mostly static, after JS was created dynamic Web sites were made.
+        Functions in JS are objects. They may have properties and methods just like other objects. They can be passed as arguments in other functions.
+        Can handle date and time.
+        Performs Form Validation although the forms are created using HTML.
+        No compiler is needed.</p>
+    </div>
+    <div class="js">
+  <h3>JavaScript Display Possibilities</h3>
+ 
+<p>JavaScript can "display" data in different ways:<br>
+
+Writing into an HTML element, using innerHTML.<br>
+Writing into the HTML output using document.write().<br>
+Writing into an alert box, using window.alert().<br>
+Writing into the browser console, using console.log().</p><br>
+<h3>Variables are Containers for Storing Data</h3>
+<p>JavaScript Variables can be declared in 4 ways:<br>
+
+Automatically<br>
+Using var<br>
+Using let<br>
+Using const</p><br>
+<h3>here are some javascript sheets to understand it better and simply</h3>
+
+
+
+   
+     <img src="js1.jpg">
+        <img src="js2.jpg">
+        <img src="js3.jpg"> 
+        <img src="js5.jpg">
+        <img src="js4.jpg">
+        
+      </div>
+        
+       
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Development Quiz</title>
+  <script>
+function evaluerQCM() {
+    let score = 0;
+    let questionsJustes = [];
+    let questionsFausses = [];
+    let questionsSansReponse = [];
+
+    // Ajoutez des conditions pour chaque question
+    if (document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value === "correct") {
+        score += 2;
+        questionsJustes.push(1);
+    } else if (document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value === "incorrect") {
+        score -= 1;
+        questionsFausses.push(1);
+    } else {
+        questionsSansReponse.push(1);
+    }
+    document.getElementById('score').textContent = score;
+    document.getElementById('questionsJustes').textContent = questionsJustes.join(', ');
+    document.getElementById('questionsFausses').textContent = questionsFausses.join(', ');
+    document.getElementById('questionsSansReponse').textContent = questionsSansReponse.join(', ');
+
+    document.getElementById('resultat').style.display = 'block';
+}
+
+
+  </script>
+  <style>
+     .header{
+  background-color: rgb(39, 138, 219);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+   
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 9%;
+  }
+  
+  .header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+  }
+  
+  .header .logo i{
+    color: var(--primary-color);
+    padding-right: .5rem;
+  }
+  
+  .header .navbar a{
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+    padding-block: 1rem;
+  }
+  
+  .header .navbar a:hover{
+    color: var(--primary-color);
+  }
+  
+  .header .navbar .hover-underline{
+    position: relative;
+    max-width: max-content;
+  }
+  
+  .header .navbar .hover-underline::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: .5rem;
+    border-block: .1rem solid var(--primary-color);
+    transform: scaleX(0.2);
+    opacity: 0;
+    transition: 500ms ease;
+  }
+  
+  .header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  
+  .header .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  
+  .header .icons div:hover{
+    color: var(--primary-color);
+  }
+  
+  #menu-btn{
+    display: none;
+  }
+  .para{ font-size: 30px;}
+  
+  .header .login-form{
+    position: absolute;
+    top: 115%; right: -105%;
+    background: var(--white);
+    box-shadow: .5rem;
+    width: 35rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+  }
+  
+  .header .login-form.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+  
+  .header .login-form h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: .7rem;
+  }
+  
+  .header .login-form .box{
+    font-size: 1.5rem;
+    margin: .7rem 0;
+    border: .1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.2rem;
+    color: var(--black);
+    text-transform: none;
+    width: 100%;
+  }
+  
+  .header .login-form .remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .7rem 0;
+  }
+  
+  .header .login-form .remember label{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+  }
+  section .heading{font-size: 25px; font-family: Georgia, 'Times New Roman', Times, serif;
+  border: solid rgb(39, 138, 219) 5px; display: inline-flex;}
+  section p{font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+  .qcm{ 
+    padding-top: 20px;
+    border:solid rgb(58, 18, 95) 10px;
+    border-radius: 1cm;
+    background-color: rgb(184, 137, 228);
+  }
+  </style>
+</head>
+<body>
+  <header class="header">
+
+    <a href="#" class="logo"><i class="fas fa-book"></i> codingweb</a>
+
+    <nav class="navbar">
+        <a href="home.html" class="hover-underline">home</a>
+        <a href="#about" class="hover-underline">about</a>
+        <a href="subjects.html" class="hover-underline">HTML</a>
+        <a href="CSS.html" class="hover-underline">CSS</a>
+        <a href="javascript.html" class="hover-underline">JAVASCRIPT</a>
+        <a href="QCM.html" class="hover-underline">QCM</a>
+    </nav>
+
+    <div class="icons">
+        <div id="login-btn" class="fas fa-user"></div>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </div>
+</header>
+
+  <h1>Web Development Quiz</h1>
+<div class="qcm">
+  <div id="qcmForm">
+    <h2>Question 1: What does HTML stand for?</h2>
+    <input type="radio" name="q1" value="correct"> Hypertext Markup Language<br>
+    <input type="radio" name="q1" value="incorrect"> Hyperlink Markup Language<br>
+    <input type="radio" name="q1" value="incorrect"> Home Tool Markup Language<br><br>
+
+    <h2>Question 2: Which property is used to change the text color in CSS?</h2>
+    <input type="radio" name="q2" value="color"> Color<br>
+    <input type="radio" name="q2" value="incorrect"> Text-Color<br>
+    <input type="radio" name="q2" value="incorrect"> Font-Color<br><br>
+
+    <h2>Question 3: Which language is used for adding interactivity to a webpage?</h2>
+    <input type="radio" name="q3" value="incorrect"> HTML<br>
+    <input type="radio" name="q3" value="incorrect"> CSS<br>
+    <input type="radio" name="q3" value="correct"> JavaScript<br><br>
+
+    <h2>Question 4: What does CSS stand for?</h2>
+    <input type="radio" name="q4" value="correct"> Cascading Style Sheets<br>
+    <input type="radio" name="q4" value="incorrect"> Creative Style Sheets<br>
+    <input type="radio" name="q4" value="incorrect"> Computer Style Sheets<br><br>
+
+    <h2>Question 5: Which HTML tag is used to link an external JavaScript file?</h2>
+    <input type="radio" name="q5" value="incorrect"> &lt;js&gt;<br>
+    <input type="radio" name="q5" value="correct"> &lt;script&gt;<br>
+    <input type="radio" name="q5" value="incorrect"> &lt;javascript&gt;<br><br>
+
+    <button onclick="evaluerQCM()">Évaluer</button>
+
+  
+
+    <div id="resultat">
+      <h3>Résultat de l'évaluation</h3>
+      <p>Score: <span id="score">0</span></p>
+      <p>Questions justes: <span id="questionsJustes"></span></p>
+      <p>Questions fausses: <span id="questionsFausses"></span></p>
+      <p>Questions sans réponse: <span id="questionsSansReponse"></span></p>
+  </div>
+  </div>
+
+
+</div>
+</body>
+</html>
